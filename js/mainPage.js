@@ -1,8 +1,8 @@
 
-(function(){
+(function(window){
 
 	
-
+	window.openFlag = true;
 
 /*------------------------打开详情页----------------*/
 	function growOpen (json) {
@@ -25,6 +25,7 @@
 				// console.log(min)
 				var _this = this;
 				if (this.onOff) {
+					window.openFlag = false;
 					// min.style.opacity = 0;
 					mTween(min,{width: 800}, 300, 'linear', function () {
 						con.style.opacity = 1;
@@ -38,6 +39,7 @@
 						}, 800)
 					})
 				} else {
+					window.openFlag = true;
 					this.style.width = '50px';
 					this.style.height = '50px';
 					this.style.top = (this.offsetTop + 200) + 'px';
@@ -72,15 +74,16 @@
 
 	circleNav.prototype.inite = function(){
 		var _this = this;
-		this.onOff = true;
+		this.setting.home.onOff = true;
 
 		this.setting.home.onclick = function () {
 			_this.lanNav(this)
 		};
 	};
 
-	circleNav.prototype.lanNav = function(){
-		if(this.onOff){
+	circleNav.prototype.lanNav = function(obj){
+		console.log(obj)
+		if(obj.onOff){
 			this.setting.home.style.transform = 'rotate(-360deg)';
 			for(var i = 0; i<this.setting.btnCon.length; i++){
 				var deg = (i/this.setting.btnCon.length) * (this.setting.endDeg-this.setting.initeDeg) * Math.PI / 180 + (this.setting.initeDeg)*Math.PI / 180;
@@ -101,7 +104,7 @@
 
 			}
 		}
-		this.onOff = !this.onOff;
+		obj.onOff = !obj.onOff;
 	}
 
 
@@ -126,7 +129,7 @@
 		}
 
 		setTimeout(function(){
-			se.style.opacity=1;
+			mTween(se,{opacity: 100}, 2000, 'linear');
 			document.addEventListener('mousewheel', run);
 			document.addEventListener('DOMMouseScroll', run);
 		},2500)
@@ -135,7 +138,8 @@
 			var a = locData.getHash().value;
 			se.style.opacity=0;
 			if (a == 'main') {
-				se.style.opacity=1;
+				// se.style.opacity=1;
+				mTween(se,{opacity: 100}, 2000, 'linear');
 			};
 		}, false)
 
@@ -162,6 +166,9 @@
 			motorImgs=motorImg.children;
 
 		function run () {
+			if (!window.openFlag) {
+				return;
+			}
 			function changeImg(){
 				document.body.style.backgroundColor=colorArr[s];
 				for(var i=0;i<manImgs.length;i++){
@@ -183,7 +190,12 @@
 					wheelOnOff = true;
 				});
 			}
-
+			var btnCon = document.querySelectorAll('.home');
+			for (var i = 0; i < btnCon.length; i++) {
+				if (!btnCon[i].onOff) {
+					btnCon[i].onclick();
+				}
+			}
 
 		}
 		for (var i = 0; i < aMain.length; i++) {
@@ -197,7 +209,6 @@
 				endDeg: -210
 			});
 
-			// console.log(growOpen.prototype.inite)
 
 			var show = new growOpen({
 				obj: btnCon
@@ -207,46 +218,6 @@
 			cirNav.inite();
 		}
 
-		/*setPos({
-			x: window.innerWidth/2,
-			y: window.innerHeight/2,
-			R: 700,
-			begin: 0,
-			end: 360,
-			arr: aMenu
-		})
 
 
-
-
-
-
-
-	function setPos (json) {
-		// console.log(json)
-		var set = {
-			x: 0,
-			y: 0,
-			R: 0,
-			begin: 0,
-			end: 0,
-			arr: null
-		}
-		for (attr in json) {
-			set[attr] = json[attr]
-		}
-		for (var i = 0; i < set.arr.length; i++) {
-			var deg = (i/set.arr.length) * (set.end-set.begin) * Math.PI / 180 + (set.begin)*Math.PI / 180;
-			// console.log(deg);
-			var x = Math.cos(deg) * set.R -25 + set.x;
-			var y = Math.sin(deg) * set.R -25 + set.y;
-			// console.log(x)
-			// console.log(y)
-			set.arr[i].style.left = x +'px';
-			set.arr[i].style.top = y +'px';
-		}
-
-	}*/
-
-
-})()
+})(window)

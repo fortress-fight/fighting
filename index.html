@@ -33,7 +33,7 @@
 		#myCanvas {
 			position: absolute;
 			top: 0; left: 0;
-			z-index: -1;
+			z-index: 10;
 		}
 
 	/* 	#ex {
@@ -58,7 +58,7 @@
 			z-index: 30;
 			opacity: 0;
 			transform: rotate(-90deg);
-			transition: transform 1s , opacity 2s;
+			transition: transform 1s;
 		}
 
 		#se .menu{
@@ -72,16 +72,16 @@
 
 
 		#se .menu:nth-child(1) {
-			transform: translateX(550px) rotate(90deg);
+			transform: translateX(580px) rotate(90deg);
 		}
 		#se .menu:nth-child(2) {
-			transform: translateY(550px) rotate(180deg);
+			transform: translateY(580px) rotate(180deg);
 		}
 		#se .menu:nth-child(3) {
-			transform:  translateX(-550px) rotate(-90deg);
+			transform:  translateX(-580px) rotate(-90deg);
 		}
 		#se .menu:nth-child(4) {
-			transform:  translateY(-550px) rotate(0deg);
+			transform:  translateY(-580px) rotate(0deg);
 		}
 
 /* 导航 */
@@ -105,9 +105,10 @@
 /* 导航主按钮 */
 
 		.home{
-			width: 50px;
-			height: 50px;
+			width: 55px;
+			height: 55px;
 			background: url(img/barbarian-bg.jpg) no-repeat 0 0;
+			cursor: pointer;
 			border-radius: 25px;
 			position: absolute;
 			left:0;
@@ -118,6 +119,7 @@
 /* 导航子按钮 */
 		.sBtn {
 			display: block;
+			cursor: pointer;
 			width: 50px;
 			height: 50px;
 			background: url(img/text.png) no-repeat 0 0 /100% 100%;
@@ -242,12 +244,17 @@
 		}
 		.back {
 			z-index: 100;
-			opacity: 0;
+			opacity: 1;
 		}
 
 /*  播放器的层级  */
 		#myMusic {
 			z-index: 60;
+		}
+
+
+		.none {
+			display: none;
 		}
 
 	</style>
@@ -256,6 +263,7 @@
 <body>
 
 
+	<div id="marsk"></div>
 <!--  canvas 按钮相关 -->
 	<section id="warp">
 		<div id="LRBtn">
@@ -263,7 +271,7 @@
 			<a href="javascript:;" id="rightBanner" btn="run"  class="down">></a>
 		</div>
 		<a href="#page=main" id="comebackack"  class="back">
-			<img src="img/comeBack.png"/>
+			主页
 		</a>
 	</section>
 
@@ -277,7 +285,7 @@
 		<div class="menu">
 			<img class="mainImg" src="img/barbarian.png" alt="">
 			<div class = "menu_list">
-				<a href="javascript:;" class="sBtn"></a>
+				<a href="javascript:;" class="sBtn none"></a>
 				<div class="sBtn btnCon">
 					<div class="wrap">
 						<div class="card">
@@ -285,10 +293,10 @@
 								<img class="smallImg" src="img/barbarian.png"/>
 							</div>
 							<div class="xiangmu">
-								<span>打多少</span>
-								<span>的萨达</span>
-								<span>上单阿萨德</span>
-								<span>的萨达撒</span>
+								<span>这是主页卡</span>
+								<span>再次点击消失</span>
+								<span>然后点击滚轮</span>
+								<span>查看下一项</span>
 							</div>
 							<div class="divtext">
 								<div class="training">
@@ -308,7 +316,7 @@
 					</div>
 				</div>
 
-				<a href="javascript:;" class="sBtn"></a>
+				<a href="javascript:;" class="sBtn none"></a>
 			</div>
 			<div class='home'></div>
 		</div>
@@ -324,6 +332,8 @@
 							</div>
 							<div class="xiangmu">
 								<span>If you can fight, fighting</span>
+								<span>点击两侧按钮</span>
+								<span>查看效果</span>
 							</div>
 							<div class="divtext">
 								<div class="training">
@@ -358,10 +368,9 @@
 								<img class="smallImg" src="img/goblin.png"/>
 							</div>
 							<div class="xiangmu">
-								<span>打多少</span>
-								<span>的萨达</span>
-								<span>上单阿萨德</span>
-								<span>的萨达撒</span>
+								<span>If you can fight, fighting</span>
+								<span>点击两侧按钮</span>
+								<span>查看效果</span>
 							</div>
 							<div class="divtext">
 								<div class="training">
@@ -395,10 +404,11 @@
 								<img class="smallImg" src="img/wizard.png"/>
 							</div>
 							<div class="xiangmu">
-								<span>打多少</span>
-								<span>的萨达</span>
-								<span>上单阿萨德</span>
-								<span>的萨达撒</span>
+								<span>If you can fight, fighting</span>
+								<span>点击两侧按钮</span>
+								<span>查看效果</span>
+								<span>音乐可视化</span>
+								<span>请在服务器环境下使用</span>
 							</div>
 							<div class="divtext">
 								<div class="training">
@@ -525,7 +535,7 @@
 	<script>
 
 /*照片墙相关*/
-		window.location.hash = 'page=M';
+		window.location.hash = 'page=main';
 		var wrap2D =document.getElementById('wrap2D');
 		wrap2D.addEventListener('mousewheel', function (ev) {
 				ev.cancelBubble = true;
@@ -627,7 +637,6 @@
 		    	case 'music':
 		    	var docWidth = document.documentElement.clientWidth;
 		    	music.style.left = (docWidth - music.offsetWidth)/2 + 'px';
-		    	back.style.opacity = 1;
 		    	break;
 		    	case 'pto':
 			    	wrap2D.style.display = 'block';
@@ -636,14 +645,12 @@
 					setTimeout(function(){
 						ball_list.style.display='block';
 					},1300);
-					back.style.opacity = 1;
 				break;
 		    	default:
 			    	musicPlayToPause();
 			    	music.style.left = '-300px';
 			    	wrap2D.style.display = 'none';
 		    		wrap2D.style.height=0;
-		    		back.style.opacity = 0;
 		    	break;
 		    }
 		});

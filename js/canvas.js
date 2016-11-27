@@ -17,6 +17,7 @@
 		this.flag = false;
 		this.playMusic = false;
 		this.stop = false;
+		this.changeColorIndex = 0;
 	}
 
 	Draw.prototype.picData = {
@@ -24,7 +25,7 @@
 		cruType: 0,
 		nowData: [],
 		nextData: [],
-		len: 150
+		len: 120
 	}
 
 	Draw.prototype.textData = {
@@ -45,7 +46,8 @@
 		text: ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5',
 			  '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4CAF50',
 			  '#8BC34A', '#CDDC39', '#FFEB3B', '#FFC107', '#FF9800',
-			  '#FF5722']
+			  '#FF5722'],
+		changeColor: [[ '#e67e22', '#2c3e50' ], ['#58a', '#fb3']]
 	}
 
 	Draw.prototype.inite = function(){
@@ -55,11 +57,16 @@
 		this.c.height = winHeight()-3;
 		this.clearC();
 
-		// document.onmousewheel = function () {
-		// 	_this.colorData.circle = ['red', 'blue'];
-		// 	clearInterval(_this.timer);
-		// 	_this.hide = true;
-		// }
+		se.addEventListener('transitionend', function (ev) {
+			ev.cancelable = true;
+			// console.log(_this.changeColorIndex)
+			_this.colorData.circle = _this.colorData.changeColor[_this.changeColorIndex]
+			_this.changeColorIndex ++;
+			if (_this.changeColorIndex > _this.colorData.changeColor.length-1) {
+				_this.changeColorIndex = 0;
+			}
+		});
+
 
 		// music
 
@@ -269,9 +276,9 @@
 	Draw.prototype.getTextData = function () {
 		this.textData.nextData = [];
 		if (this.playMusic) {
-			for (var i = 0; i < 200; i++) {
+			for (var i = 0; i < 80; i++) {
 				this.textData.nextData.push({
-					x: i * 50,
+					x: i * 60,
 					y: 700,
 					orbit: randomBetween(1, 3),
 					angle: 0
