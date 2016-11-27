@@ -77,7 +77,7 @@
 		    this.audioSrc.connect(_this.analyser);
 		    this.analyser.connect(_this.musicCtx.destination);
 		    this.frequencyData = new Uint8Array(_this.analyser.frequencyBinCount);
-			console.log(this.frequencyData)
+			// console.log(this.frequencyData)
 		}
 
 		window.onhashchange = function () {

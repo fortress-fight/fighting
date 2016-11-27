@@ -14,6 +14,7 @@
 	<script src = 'js/完整版miaov.js'></script>
 	<script src = 'js/move.js'></script>
     <script src = 'js/canvas.js'></script>
+    <script src = 'js/ajax.js'></script>
     <script src="js/arrImg.js" type="text/javascript" charset="utf-8"></script>	
 	<style>
 		html {
@@ -467,7 +468,7 @@
 			<div id="music-progress"></div>
 		</div>
 
-		<audio id="myAudio" src="music/4 Non Blondes - What's Up.mp3"></audio>
+		<audio id="myAudio" src="music/bbc_sherlock_openning.mp3"></audio>
 
 		<div class="music-controls-bg">
 			<a href="javascript:;"></a>
@@ -578,18 +579,47 @@
 		    var timer = 0;
 		    var nub = 0;
 
-
 		    //如果页面加载时，自动播放音乐，此条代码可省略
 	        drawCircle(cxt,'gray',Math.PI*2*.9);
 
 	        //如果页面加载时，不会自动播放音乐，此条代码可省略
 	        musicStatusChange();
 	        //drawRipple ();
-		    canvas.onclick = function () {
-		        this.width = 300;
-		        this.height = 10;
-		        this.style.background = 'red';
-		    }
+		    musicInit();
+		    // canvas.onclick = function () {
+		    //     this.width = 300;
+		    //     this.height = 10;
+		    //     this.style.background = 'red';
+		    // }
+
+/**/
+		function musicInit () {
+			ajax('get','http://120.24.162.247/api/Music', 'id='+317921676, function (data) {
+				var data = JSON.parse(data);
+				// aud.src = data[0].src;
+				/*var name0 = lis[0].getElementsByTagName('p')[0];
+	        	var cover0 = lis[0].getElementsByTagName('img')[0];
+	        	var singer0 = lis[0].getElementsByTagName('span')[0];
+				name0.innerHTML = data[0].name;
+	        	singer0.innerHTML = data[0].author;*/
+	        	// cover0.src = data[0].cover;
+				for (var i = 0; i < lis.length; i++) {
+		        	lis[i].setAttribute('author', data[i].author);
+		        	lis[i].setAttribute('au', data[i].src);
+		        	lis[i].setAttribute('cover', data[i].cover);
+		        	var name = lis[i].getElementsByTagName('p')[0];
+		        	var cover = lis[i].getElementsByTagName('img')[0];
+		        	var singer = lis[i].getElementsByTagName('span')[0];
+		        	name.innerHTML = data[i].name;
+		        	singer.innerHTML = data[i].author;
+		        	cover.src = data[i].cover;
+			    }
+			    // aud.play();
+			    // aud.controls = 'controls';
+			});
+		}
+
+/**/
 
 		    for (var i = 0; i < lis.length; i++) {
 		    	lis[i].index = i;
@@ -598,6 +628,7 @@
 		            aud.src = this.getAttribute('au');
 		            musicPauseToPlay ();
 		            nub = this.index;
+		            arc.style.backgroundImage = "url("+this.getAttribute('cover')+")";
 		        }
 		    }
 
