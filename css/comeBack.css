@@ -1,15 +1,15 @@
 @keyframes rotate {
-    0% { 
-    	opacity: .2; 
+    0% {
+    	opacity: .2;
    		box-shadow:0 1px 2px rgba(255,255,255,0.1);
     }
-    50% { 
-    	opacity: .8; 
+    50% {
+    	opacity: .8;
         border:1px solid rgba(59,235,235,1);
         box-shadow:0 1px 30px rgba(59,255,255,1);
     }
-    100% { 
-    	opacity: .2; 
+    100% {
+    	opacity: .2;
    		box-shadow:0 1px 2px rgba(255,255,255,0.1);
     }
 }
@@ -22,7 +22,7 @@ body{
 	width: 50px;
 	height: 50px;
 	color: #fff;
-	text-align:center; 
+	text-align:center;
 	font:20px/50px "微软雅黑";
 	text-decoration: none;
 	border: 1px solid #2b92d4;
@@ -37,9 +37,9 @@ body{
 #warp a[btn]:active{
 	transform: scale(1);
 	font-size: 30px;
-	opacity: 1; 
+	opacity: 1;
 	transition:.3s;
-	
+
 }
 #warp #comebackack{
 	width: 60px;
@@ -52,7 +52,7 @@ body{
 	font-size: 20px;
 	color: #000;
 	margin: 2px;
-	
+
 }
 #warp img{
 	padding-top: 5px;

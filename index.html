@@ -467,7 +467,7 @@
 			<div id="music-progress"></div>
 		</div>
 
-		<audio id="myAudio" src="music/bbc_sherlock_openning.mp3"></audio>
+		<audio id="myAudio" src="music/4 Non Blondes - What's Up.mp3"></audio>
 
 		<div class="music-controls-bg">
 			<a href="javascript:;"></a>
@@ -580,7 +580,7 @@
 
 
 		    //如果页面加载时，自动播放音乐，此条代码可省略
-	        drawCircle(cxt,'red',Math.PI*2*.9);
+	        drawCircle(cxt,'gray',Math.PI*2*.9);
 
 	        //如果页面加载时，不会自动播放音乐，此条代码可省略
 	        musicStatusChange();
@@ -667,8 +667,8 @@
 		    function drawProgress() { // 圆形进度条
 		    	var scale = (aud.currentTime/aud.duration).toFixed(3);
 		    	cxt.clearRect(0,0,300,300);
-		    	drawCircle(cxt,'#ef5350',Math.PI*2*.9);
-		    	drawCircle(cxt,'red',Math.PI*2*.9*scale);
+		    	drawCircle(cxt,'gray',Math.PI*2*.9);
+		    	drawCircle(cxt,'#ef5350',Math.PI*2*.9*scale);
 		    	requestAnimationFrame(drawProgress);
 		    }
 		    function musicStatusChange() { //根据进度画圆形进度条
