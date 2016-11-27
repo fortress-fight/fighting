@@ -56,6 +56,7 @@
 	};
 
 /*--------------------打开导航------------------*/
+
 	function circleNav (data) {
 		this.setting = {
 			home: '',
@@ -105,12 +106,6 @@
 
 
 
-
-
-
-
-
-
 /* 改变背景 */
 
 		var aMenu = document.querySelectorAll('.menu')
@@ -119,7 +114,6 @@
 		var target = 0;
 		var wheelOnOff = true;
 		var imgs = document.querySelectorAll('.divimg');
-		// console.log(imgs)
 		var bgData = [
 			'img/barbarian-bg.jpg',
 			'img/archer-bg.jpg',
@@ -213,7 +207,7 @@
 			cirNav.inite();
 		}
 
-		setPos({
+		/*setPos({
 			x: window.innerWidth/2,
 			y: window.innerHeight/2,
 			R: 700,
@@ -252,7 +246,7 @@
 			set.arr[i].style.top = y +'px';
 		}
 
-	}
+	}*/
 
 
 })()
