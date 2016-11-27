@@ -129,7 +129,7 @@
 		}
 
 		setTimeout(function(){
-			mTween(se,{opacity: 100}, 2000, 'linear');
+			mTween(se,{opacity: 100}, 1000, 'linear');
 			document.addEventListener('mousewheel', run);
 			document.addEventListener('DOMMouseScroll', run);
 		},2500)
@@ -139,7 +139,7 @@
 			se.style.opacity=0;
 			if (a == 'main') {
 				// se.style.opacity=1;
-				mTween(se,{opacity: 100}, 2000, 'linear');
+				mTween(se,{opacity: 100}, 1000, 'linear');
 			};
 		}, false)
 

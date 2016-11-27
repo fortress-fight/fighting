@@ -29,11 +29,12 @@
 	}
 
 	Draw.prototype.textData = {
-		type: ['----------MIAOV----------', '➜ ➜ ➜ ➜ ➜ ➜ ', '➢➢➢➢➢➢' , '{^o~o^}'],
+		type: ['-------MIAOV-------', '-------HTML-------', '-------CSS-------' , '----JavaScript----'],
 		cruType: 0,
 		nowData: [],
 		nextData: [],
-		len: 200
+		len: 200,
+		size: 100
 	}
 
 	Draw.prototype.colorData = {
@@ -89,6 +90,7 @@
 			setTimeout(function () {
 				switch (a) {
 					case 'cRun':
+						_this.textData.size = 150;
 						_this.textData.type= ['付飞', '刘洋', '王芳' , '苏鼎立','刘鑫','吴晓倩','倪文广','赵娜娜'];
 						_this.hide = false;
 						_this.clearC();
@@ -98,6 +100,8 @@
 						_this.aBtn.style.opacity = 1;
 						break;
 					case 'main':
+						_this.textData.size = 100;
+						_this.textData.type=['-------MIAOV-------', '-------HTML-------', '-------CSS-------' , '----JavaScript----'];
 						_this.hide = false;
 						_this.playMusic = false;
 						_this.stop= false;
@@ -126,7 +130,7 @@
 				}
 			},1000)
 		}
-		_this.up.onclick = function () {
+		_this.down.onclick = function () {
 			_this.picData.cruType++;
 				if (_this.picData.cruType >= _this.picData.type.length) {
 					_this.picData.cruType = 0;
@@ -142,7 +146,7 @@
 			// _this.picData.cruType++;
 			_this.flag = true;
 		}
-		_this.down.onclick = function () {
+		_this.up.onclick = function () {
 			_this.picData.cruType--;
 			if (_this.picData.cruType < 0) {
 				_this.picData.cruType = _this.picData.type.length-1;
@@ -265,7 +269,7 @@
 
 
 	Draw.prototype.setTextData = function () {
-		this.ctx.font = 100 + 'px Lato, Arial, sans-serif';
+		this.ctx.font = this.textData.size + 'px Lato, Arial, sans-serif';
 		this.ctx.fillStyle = 'rgb(255, 255, 255)';
 		this.ctx.textAlign = 'center';
 		var strip = this.textData.type[this.textData.cruType].split('').join(' ');
