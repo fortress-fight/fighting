@@ -386,7 +386,7 @@
 					break;
 				case 'drop':
 					nextData[i].x = this.c.width * 0.5 + 90 * (1 - Math.sin(i)) * Math.cos(i);
-					nextData[i].y = 320 + 140 * (- Math.sin(i) - 1);
+					nextData[i].y = 400 + 140 * (- Math.sin(i) - 1);
 					break;
 				case 'ovals':
 					var limit, step;
@@ -395,13 +395,13 @@
 					// First oval
 					if(i < [].slice.call(data, 0, limit).length) {
 						nextData[i].x = this.c.width * 0.5 + 80 * Math.cos(step);
-						nextData[i].y = 180 + 140 * Math.sin(step);
+						nextData[i].y = 320 + 140 * Math.sin(step);
 					}
 					// Second oval
 					else {
 						limit = (data.length * 0.5);
 						nextData[i].x = this.c.width * 0.5 + 140 * Math.cos(step);
-						nextData[i].y = 180 + 80 * Math.sin(step);
+						nextData[i].y = 320 + 80 * Math.sin(step);
 					}
 					break;
 				case 'heart':
@@ -410,7 +410,7 @@
 					break;
 				case 'ribbon':
 					nextData[i].x = this.c.width * 0.5 + 90 * (Math.sin(i)) * Math.cos(i);
-					nextData[i].y = 320 + 140 * (- Math.sin(i) - 1);
+					nextData[i].y = 430 + 140 * (- Math.sin(i) - 1);
 					break;
 
 				default:
