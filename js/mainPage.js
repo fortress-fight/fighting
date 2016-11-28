@@ -32,7 +32,7 @@
 						_this.style.width = '600px';
 						_this.style.zIndex = '100';
 						_this.style.height = '613px';
-						_this.style.top = (_this.offsetTop - 200) + 'px';
+						_this.style.top = (_this.offsetTop - 150) + 'px';
 						_this.style.backgroundImage = 'url()';
 						setTimeout(function () {
 							img.style.opacity = 1;
@@ -42,7 +42,7 @@
 					window.openFlag = true;
 					this.style.width = '50px';
 					this.style.height = '50px';
-					this.style.top = (this.offsetTop + 200) + 'px';
+					this.style.top = (this.offsetTop + 150) + 'px';
 					this.style.backgroundImage  = 'url(img/放大镜.png)';
 					this.style.zIndex = '0';
 					mTween(min,{width: 200}, 500, 'linear');
@@ -129,7 +129,7 @@
 		}
 
 		setTimeout(function(){
-			mTween(se,{opacity: 100}, 1000, 'linear');
+			mTween(se,{opacity: 100}, 500, 'linear');
 			document.addEventListener('mousewheel', run);
 			document.addEventListener('DOMMouseScroll', run);
 		},2500)
@@ -139,7 +139,7 @@
 			se.style.opacity=0;
 			if (a == 'main') {
 				// se.style.opacity=1;
-				mTween(se,{opacity: 100}, 1000, 'linear');
+				mTween(se,{opacity: 100}, 500, 'linear');
 			};
 		}, false)
 

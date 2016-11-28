@@ -29,7 +29,7 @@
 	}
 
 	Draw.prototype.textData = {
-		type: ['-------MIAOV-------', '-------HTML-------', '-------CSS-------' , '----JavaScript----'],
+		type: ['----MIAOV----', '----HTML----', '----CSS----' , '---JavaScript---'],
 		cruType: 0,
 		nowData: [],
 		nextData: [],
@@ -170,9 +170,9 @@
 			// text
 
 			_this.initTextData();
-			_this.startMove();
 			_this.mainC();
 		}, 500)
+			_this.startMove();
 	};
 
 
@@ -187,9 +187,9 @@
 				_this.setTextData();
 				_this.initTextData();
 				_this.picData.cruType++;
-				if (_this.picData.cruType >= 1) {
+				// if (_this.picData.cruType >= 1) {
 					_this.picData.cruType = 1;
-				}
+				// }
 				_this.textData.cruType++;
 				if (_this.textData.cruType >= _this.textData.type.length) {
 					_this.textData.cruType = 0;
@@ -382,7 +382,7 @@
 					break;
 				case 'circle':
 					nextData[i].x = this.c.width*0.5 + 140 * Math.sin(data[i].step);
-					nextData[i].y = this.c.height*0.3 + 140 * Math.cos(data[i].step);
+					nextData[i].y = this.c.height*0.4 + 140 * Math.cos(data[i].step);
 					break;
 				case 'drop':
 					nextData[i].x = this.c.width * 0.5 + 90 * (1 - Math.sin(i)) * Math.cos(i);
@@ -440,9 +440,6 @@
 		var text = _this.textData;
 		(function fn() {
 			_this.clearC();
-			if (_this.stop) {
-				return;
-			}
 			if (!_this.playMusic) {
 				for (var i = 0; i < pic.nowData.length; i++) {
 					if (_this.flag) {

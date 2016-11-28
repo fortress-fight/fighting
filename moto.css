@@ -14,23 +14,23 @@
 .motor_wrap .motor .smoke{ display:block; height:10px; width:10px; background:#ccc; border-radius:10px; position:absolute; left:0px; top:3px;}
 .motor_wrap .penguin{ display:block; height:48px; width:40px; background: url(../images/page_3/3333.gif) no-repeat -131px -181px; background-size:172px 300px; position:absolute; left:27px; top:-6px; -webkit-transform-origin:50% 100%;}
 .motor_shadow{ display:block; height:14px; width:180px; position:absolute; left:50%; margin-left:-85px; bottom:-25px; background:rgba(0,0,0,.5); border-radius:180px/14px; -webkit-transform-origin:50% 600px; -webkit-transform:rotate(-35deg); opacity:0;}
-.motor_hook{ -webkit-animation:a_motor_hook 1s 2.4s linear infinite alternate;}
-.motor_wrap{ -webkit-animation:a_motor_wrap 1.5s 0.9s linear both;}
-.motor_shadow{ -webkit-animation:a_motor_wrap 1.5s 0.9s linear both;}
-.motor_wrap .motor .motor_handle{ -webkit-animation:a_motor_handle 0.5s linear infinite;}
-.motor_wrap .motor .motor_body{ -webkit-animation:a_motor_body 0.5s linear infinite;}
-.motor_wrap .motor .wheel_front{ -webkit-animation:a_wheel_front 0.5s linear infinite;}
-.motor_wrap .motor .wheel_back{ -webkit-animation:a_wheel_front 0.5s linear infinite;}
-.motor_wrap .motor .motor_pipe{ -webkit-animation:a_wheel_front 0.5s 0.1s linear infinite;}
-.motor_wrap .motor .smoke_1{ -webkit-animation:a_smoke 1s 0.1s linear infinite;}
-.motor_wrap .motor .smoke_2{ -webkit-animation:a_smoke 1s 0.5s linear infinite;}
-.motor_wrap .penguin{ -webkit-animation:a_motor_penguin 0.5s linear infinite;}
-.motor_wrap .penguin .scarf{ -webkit-animation:a_motor_penguin_scarf 0.3s linear infinite;}
+// .motor_hook{ -webkit-animation:a_motor_hook 1s 2.4s linear infinite alternate;}
+// .motor_wrap{ -webkit-animation:a_motor_wrap 1.5s 0.9s linear both;}
+// .motor_shadow{ -webkit-animation:a_motor_wrap 1.5s 0.9s linear both;}
+// .motor_wrap .motor .motor_handle{ -webkit-animation:a_motor_handle 0.5s linear infinite;}
+// .motor_wrap .motor .motor_body{ -webkit-animation:a_motor_body 0.5s linear infinite;}
+// .motor_wrap .motor .wheel_front{ -webkit-animation:a_wheel_front 0.5s linear infinite;}
+// .motor_wrap .motor .wheel_back{ -webkit-animation:a_wheel_front 0.5s linear infinite;}
+// .motor_wrap .motor .motor_pipe{ -webkit-animation:a_wheel_front 0.5s 0.1s linear infinite;}
+// .motor_wrap .motor .smoke_1{ -webkit-animation:a_smoke 1s 0.1s linear infinite;}
+// .motor_wrap .motor .smoke_2{ -webkit-animation:a_smoke 1s 0.5s linear infinite;}
+// .motor_wrap .penguin{ -webkit-animation:a_motor_penguin 0.5s linear infinite;}
+// .motor_wrap .penguin .scarf{ -webkit-animation:a_motor_penguin_scarf 0.3s linear infinite;}
 
-.motor_wrap .man{ -webkit-animation:a_motor_man 0.5s linear infinite;}
-.motor_wrap .man .body .tie{ -webkit-animation:a_motor_penguin_scarf 0.4s 0.2s linear infinite;}
-.motor_wrap .man .head{ -webkit-animation:a_motor_man_head 0.5s linear infinite;}
-
+// .motor_wrap .man{ -webkit-animation:a_motor_man 0.5s linear infinite;}
+// .motor_wrap .man .body .tie{ -webkit-animation:a_motor_penguin_scarf 0.4s 0.2s linear infinite;}
+// .motor_wrap .man .head{ -webkit-animation:a_motor_man_head 0.5s linear infinite;}
+/* 
 @-webkit-keyframes a_motor_hook{
 	0%{ -webkit-transform: translate(0,0);}
 	25%{ -webkit-transform: translate(-2px,0);}
@@ -100,3 +100,4 @@
 	75%{ -webkit-transform: rotate(4deg);}
 	100%{ -webkit-transform: rotate(0deg);}
 }
+ */

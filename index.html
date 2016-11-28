@@ -73,16 +73,16 @@
 
 
 		#se .menu:nth-child(1) {
-			transform: translateX(580px) rotate(90deg);
+			transform: translateX(500px) rotate(90deg);
 		}
 		#se .menu:nth-child(2) {
-			transform: translateY(580px) rotate(180deg);
+			transform: translateY(500px) rotate(180deg);
 		}
 		#se .menu:nth-child(3) {
-			transform:  translateX(-580px) rotate(-90deg);
+			transform:  translateX(-500px) rotate(-90deg);
 		}
 		#se .menu:nth-child(4) {
-			transform:  translateY(-580px) rotate(0deg);
+			transform:  translateY(-500px) rotate(0deg);
 		}
 
 /* 导航 */
@@ -585,7 +585,7 @@
 	        //如果页面加载时，不会自动播放音乐，此条代码可省略
 	        musicStatusChange();
 	        //drawRipple ();
-		    musicInit();
+		    // musicInit();
 		    // canvas.onclick = function () {
 		    //     this.width = 300;
 		    //     this.height = 10;
@@ -628,7 +628,7 @@
 		            aud.src = this.getAttribute('au');
 		            musicPauseToPlay ();
 		            nub = this.index;
-		            arc.style.backgroundImage = "url("+this.getAttribute('cover')+")";
+		            // arc.style.backgroundImage = "url("+this.getAttribute('cover')+")";
 		        }
 		    }
 
